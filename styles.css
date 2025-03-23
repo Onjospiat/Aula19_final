@@ -18,6 +18,9 @@ nav {
   gap: 0.5rem;
   border-bottom: solid 1px #aaa;
   background-color: #eee;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 nav a {
@@ -43,4 +46,69 @@ main {
 h1 {
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+#grid_imagens{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+@media screen and (max-width:600px){
+  #grid_imagens{
+    grid-template-columns: repeat(1,1fr);
+  }
+  nav{
+    flex-direction: column;
+    height: auto;
+  }
+  nav button{
+    width:80vw;
+  }
+
+}
+@media screen and (max-width:1000px) and (min-width:600px){
+  #grid_imagens{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+img{
+  width:45vw;
+  max-width:400px;
+  margin: 1vw;
+}
+
+nav:hover p, nav .oculto{
+  display:none;
+}
+
+nav:hover button{
+  display: inline-block;
+}
+
+/*Aula 18 começa aqui*/
+
+.overlay-text{
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+  color:#fff;
+  top:0;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: opacity 0.5s ease;
+}
+
+.fundo_img{
+  position: relative;
+}
+
+.overlay-text:hover{
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+.image-container{
+  margin: auto;
 }
